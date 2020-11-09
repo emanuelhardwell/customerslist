@@ -3,7 +3,7 @@
 const controller = {};
 
 controller.list = (req, res) => {
-  res.send("hola hardwell");
+  res.render("index");
 };
 
 //export the controller
