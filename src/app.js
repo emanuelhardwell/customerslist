@@ -17,18 +17,26 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "css")));
 
 //middleware
-app.use(morgan(dev));
+app.use(morgan("dev"));
 app.use(
-  myConnection(mysql, {
-    host: "localhost",
-    database: "localhost",
-    port: 3306,
-    user: "customer",
-    password: "customer100",
-  }, "single")
+  myConnection(
+    mysql,
+    {
+      host: "localhost",
+      database: "customerslist",
+      port: 3306,
+      user: "customer",
+      password: "customer100",
+    },
+    "single"
+  )
 );
 
-app.use(express.bodyParser({ urlencoded: false }));
+app.use(express.urlencoded({ extended: false }));
+
+//routes
+const routerPro = require("./routes/route");
+app.use("/", routerPro);
 
 //listen the server
 app.listen(app.get("port"), () =>
