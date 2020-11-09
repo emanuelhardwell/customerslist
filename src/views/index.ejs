@@ -45,7 +45,7 @@
     <div class="container mt-5">
       <div class="row">
         <div class="col-md-8">
-          <table class="table table-hover table-striped">
+          <table class="table table-hover table-striped bg-success">
             <thead>
               <tr>
                 <td>Id</td>
@@ -57,7 +57,19 @@
                 <td>Create date</td>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+             <% for (let i=0; i<data.length; i++) {%>
+                <tr>
+                    <td> <%= data[i].id_customer %></td>
+                    <td> <%= data[i].name %></td>
+                    <td> <%= data[i].lastname %></td>
+                    <td> <%= data[i].email %></td>
+                    <td> <%= data[i].address %></td>
+                    <td> <%= data[i].phone %></td>
+                    <td> <%= data[i].create_date %></td>
+                </tr>    
+            <% } %>
+            </tbody>
           </table>
         </div>
         <div class="col-md-4">
